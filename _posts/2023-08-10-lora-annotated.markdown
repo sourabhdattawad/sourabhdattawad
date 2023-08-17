@@ -22,8 +22,8 @@ Therefore, are there any approaches to enhance the efficiency of model fine-tuni
 
 I have annotated the paper [LoRA: Low-Rank Adaptation of Large Language Models](https://arxiv.org/pdf/2106.09685v2.pdf), covering all important aspects. You can enlarge the picture by clicking on it :grin:.
 
-<a href="/assets/images/posts/annotated_lora.png" class="test-popup-link">
-   <img src="/assets/images/posts/annotated_lora.png" width="400" height="500px"/>
+<a href="{{ site.base_path }}/assets/images/posts/annotated_lora.png" class="test-popup-link">
+   <img src="{{ site.base_path }}/assets/images/posts/annotated_lora.png" width="400" height="500px"/>
 </a>
 
 In this blog, we're going to create a complete implementation of `LoRA` using Python 🐍. While there's a fantastic implementation by [HuggingFace](https://github.com/huggingface/peft/tree/main) that you might find interesting, here we'll focus on building everything from scratch.

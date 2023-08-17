@@ -26,10 +26,12 @@ url: "https://sourabhdattawad.github.io" # the base hostname & protocol for your
 twitter_username: sourabhdattawad
 github_username: sourabhdattawad
 linkedin_username: sourabhdattawad
+base_path: /sourabhdattawad
 # Build settings
 theme: minima
 plugins:
   - jekyll-feed
+  - jemoji
 
 # Exclude from processing.
 # The following items will not be processed, by default.

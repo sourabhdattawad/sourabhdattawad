@@ -27,6 +27,7 @@ twitter_username: sourabhdattawad
 github_username: sourabhdattawad
 linkedin_username: sourabhdattawad
 base_path: /sourabhdattawad
+google_analytics: true
 # Build settings
 theme: minima
 plugins:

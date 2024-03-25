@@ -30,7 +30,7 @@ In this blog, we're going to create a complete implementation of `LoRA` using Py
 
 # Implementation
 
-We'll make use of the `bert-base-cased` model provided by [HuggingFace](https://huggingface.co/) to apply the `LoRa` technique. To provide a brief understanding of `BERT`, it's a model primarily focused on encoding, designed to predict missing words within input text. It employs a structure built on the `transformer` architecture. In this demonstration, we'll fine-tune `BERT` for sentiment analysis on movie reviews by adding a classification head onto `bert-base-cased`. Furthermore, we'll introduce a mechanism to integrate `LoRA` layers into the encoder modules :muscle:.
+We'll make use of the `bert-base-cased` model provided by [HuggingFace](https://huggingface.co/) to apply the `LoRa` technique. To provide a brief understanding of `BERT`, it's a model primarily focused on encoding, designed to predict missing words within input text. It employs a structure built on the `transformer` architecture. In this post, we'll fine-tune `BERT` for sentiment analysis on movie reviews by adding a classification head onto `bert-base-cased`. Furthermore, we'll introduce a mechanism to integrate `LoRA` layers into the encoder modules :muscle:.
 
 Let us install a few libraries first,
 {%highlight bash%}
@@ -157,7 +157,7 @@ According to the research paper, the training process focuses exclusively on wei
 What should the configuration of these weight matrices resemble :question: 
 
 - Matrix `A` possesses dimensions of `d*r`, where `d` signifies the dimension of weight matrix `W`, and `r` represents the new rank, which can be `8` or `16`. You can consider this as a hyperparamter to be tuned. We initiate `A` with Gaussian initialization.
-- Matrix `B` holds dimensions of `r*d`, where `d` indicates the dimension of weight matrix `W`, and `r` corresponds to the projected dimension of Matrix `A`. Initially, all elements in `B` matrix are established as `0`.
+- Matrix `B` holds dimensions of `r*d`, where `d` indicates the dimension of weight matrix `W`, and `r` corresponds to the projected dimension of Matrix `A`. Initially, all elements in `B` matrix are set to `0`.
 
 # Implementing LoRA module
 

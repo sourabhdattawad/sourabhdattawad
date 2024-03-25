@@ -1,6 +1,6 @@
 ---
 layout: post
-title:  "Developing HNSW (Hierarchical Navigable Small World) from scratch to perform approximate nearest neighbor search"
+title:  "Implementing HNSW (Hierarchical Navigable Small World) from scratch to perform approximate nearest neighbor search"
 date:   2024-03-04 11:25:45 +0200
 categories: LLMs
 comments: true

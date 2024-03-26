@@ -186,7 +186,11 @@ At \( p = 0.02 \), we observe a 44% reduction in diameter with only a 2% decreas
 
 ## **Hierarchical Navigable Small World (HNSW) :earth_africa: :earth_americas: :earth_asia:**
 
-This extends the concept of NSW (Navigable Small World) by introducing multiple layers stacked atop one another. Each node may exist on a subset or all of the defined layers. The determination of a node's occurrence on a layer is computed using the formula:
+<a href="{{ site.base_path }}/assets/images/posts/hnsw-meme.jpeg" class="test-popup-link">
+   <img src="{{ site.base_path }}/assets/images/posts/hnsw-meme.jpeg"/>
+</a>
+
+HNSW extends the concept of NSW (Navigable Small World) by introducing multiple layers stacked atop one another. Each node may exist on a subset or all of the defined layers. The determination of a node's occurrence on a layer is computed using the formula:
 
 <a href="{{ site.base_path }}/assets/images/posts/hnsw-formula.png" class="test-popup-link">
    <img src="{{ site.base_path }}/assets/images/posts/hnsw-formula.png"/>

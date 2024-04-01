@@ -1,0 +1,206 @@
+---
+layout: post
+title:  "Visualizing Sinusoidal Positional Embeddings and Rotary Positional Embeddings"
+date:   2024-03-24 02:55:45 +0200
+categories: LLMs
+comments: true
+---
+
+## **Visualizing Sinusoidal Positional Embeddings and Rotary Positional Embeddings**
+
+[RoPE](https://arxiv.org/pdf/2104.09864.pdf) is all about adding in relative positional information among tokens in a context. This article gives you code to visualize Sinusoidal Positional Embeddings and Rotary Positional Embeddings, without going into all the math stuff. If you're curious about the nitty-gritty math, there's a cool post you can dive into at [eleuther.ai](https://blog.eleuther.ai/rotary-embeddings/) and [DeepLearningHero](https://www.youtube.com/watch?v=GQPOtyITy54&ab_channel=DeepLearningHero).
+
+### Visualizing the chaos of Sinosouidal Positional Embeddings
+
+- In Sinusoidal Positional Embeddings, angles and magnitudes undergo dramatic changes as the position of the token changes.
+- It becomes challenging to capture any discernible pattern.
+- Perplexity tends to increase due to the chaotic nature of the Embeddings as the sequence length increases.
+
+{% highlight python %}
+
+from google.colab import output
+output.enable_custom_widget_manager()
+import matplotlib.pyplot as plt
+import plotly.graph_objects as go
+import numpy as np
+
+
+def plot_embeddings(embeddings, title):
+    dimensions = len(embeddings[0])
+    length = len(embeddings)
+    # Define vectors
+    vectors = [
+        {"vector": embeddings[i], "name": f"Vector {i}"} for i in range(len(embeddings))
+    ]
+    # Create data for vectors
+    data = []
+    for vec in vectors:
+        data.append(
+            go.Scatter(
+                x=[0, vec["vector"][0]],
+                y=[0, vec["vector"][1]],
+                mode="lines",
+                name=vec["name"],
+            )
+        )
+
+    # Create layout
+    layout = go.Layout(
+        title=title, xaxis=dict(title="X"), yaxis=dict(title="Y"), showlegend=True
+    )
+
+    # Create figure
+    fig = go.Figure(data=data, layout=layout)
+    colours = [
+        "#1f77b4",  # muted blue
+        "#ff7f0e",  # safety orange
+        "#2ca02c",  # cooked asparagus green
+        "#d62728",  # brick red
+        "#9467bd",  # muted purple
+        "#8c564b",  # chestnut brown
+        "#e377c2",  # raspberry yogurt pink
+        "#7f7f7f",  # middle gray
+        "#bcbd22",  # curry yellow-green
+        "#17becf",  # blue-teal
+    ]
+    colour_index = 0
+    for vec in vectors:
+        arrow_x = vec["vector"][0]
+        arrow_y = vec["vector"][1]
+        # Add arrowhead to the vector
+        fig.add_annotation(
+            x=arrow_x,
+            y=arrow_y,
+            ax=0,
+            ay=0,
+            axref="x",
+            ayref="y",
+            xref="x",
+            yref="y",
+            text="",
+            showarrow=True,
+            arrowwidth=2,
+            arrowhead=2,
+            arrowsize=1,
+            arrowcolor=colours[colour_index],
+        )
+        colour_index += 1
+
+    # Define frames for animation
+    frames = []
+    for vec in vectors:
+        frame_data = [
+            go.Scatter(
+                x=[0, vec["vector"][0]],
+                y=[0, vec["vector"][1]],
+                mode="lines",
+                name=vec["name"],
+            )
+        ]
+        frames.append(go.Frame(data=frame_data))
+
+    # Update figure with frames
+    fig.frames = frames[:]
+
+    # Define animation settings
+    fig.update_layout(
+        updatemenus=[
+            dict(
+                type="buttons",
+                buttons=[
+                    dict(
+                        label="Play",
+                        method="animate",
+                        args=[
+                            None,
+                            dict(
+                                frame=dict(duration=500, redraw=True), fromcurrent=True
+                            ),
+                        ],
+                    )
+                ],
+            )
+        ]
+    )
+    return fig
+{% endhighlight %}
+
+
+{% highlight python %}
+
+def sinusoid_positional_encoding(length, dimensions):
+    def get_position_angle_vec(position):
+        return [
+            position / np.power(10000, 2 * (i // 2) / dimensions)
+            for i in range(dimensions)
+        ]
+    PE = np.array([get_position_angle_vec(i) for i in range(length)])
+    PE[:, 0::2] = np.sin(PE[:, 0::2])  # dim 2i
+    PE[:, 1::2] = np.cos(PE[:, 1::2])  # dim 2i+1
+    return PE
+
+# Number of embeddings to generate
+num_positions = 10
+# Number of Dimensions
+dimensions = 2
+# Sample word embedding
+emb = np.array([1,1])
+
+# Generate positional embeddings
+positional_encodings = sinusoid_positional_encoding(num_positions, dimensions)
+positional_embeddings = np.array([positional_encodings[i]+emb for i in range(num_positions)])
+fig = plot_embeddings(positional_embeddings, 'Sinusoidal Positional Embeddings')
+fig.show(renderer="colab")
+
+{% endhighlight %}
+
+<a href="{{ site.base_path }}/assets/images/posts/s-emb.gif" class="test-popup-link">
+   <img src="{{ site.base_path }}/assets/images/posts/s-emb.gif"/>
+</a>
+
+
+<a href="{{ site.base_path }}/assets/images/posts/transformer-meme.png" class="test-popup-link">
+   <img src="{{ site.base_path }}/assets/images/posts/transformer-meme.png"/>
+</a>
+
+### Visualizing the chaos of Rotary Positional Embeddings
+
+- Rotary Positional Embeddings rotate counterclockwise.
+- They effectively capture patterns.
+- This leads to reduced perplexity levels.
+
+{% highlight python %}
+
+def rotary_positional_encoding(length, dimension):
+    rotation_matrix = []
+    i = 0
+    theta = np.power(10000, -2 * (i // 2))
+    for m in range(length):
+        cos, sine = np.cos(m * theta), np.sin(m * theta)
+        r = np.array([[cos, -sine], [sine, cos]])
+        rotation_matrix.append(r)
+    return rotation_matrix
+
+# Generate rotary positional embeddings
+rotation_matrix = rotary_positional_encoding(num_positions, dimensions)
+rope = np.array([ np.matmul(rotation_matrix[i], emb) for i in range(num_positions)])
+fig = plot_embeddings(rope, 'Rotary Positional Embeddings')
+fig.show(renderer="colab")
+
+{% endhighlight %}
+
+<a href="{{ site.base_path }}/assets/images/posts/rope.gif" class="test-popup-link">
+   <img src="{{ site.base_path }}/assets/images/posts/rope.gif"/>
+</a>
+
+You can experiment with the notebook by accessing it here: [Google Colab](https://colab.research.google.com/drive/1_iNkyoa_UxucTLOsrW4dCUgvxB6gAznu?usp=sharing)
+
+### References
+
+[1] [https://arxiv.org/pdf/2104.09864.pdf](https://arxiv.org/pdf/2104.09864.pdf)
+
+[2] [https://blog.eleuther.ai/rotary-embeddings/](https://blog.eleuther.ai/rotary-embeddings/)
+
+[3] [https://www.inovex.de/de/blog/positional-encoding-everything-you-need-to-know/](https://www.inovex.de/de/blog/positional-encoding-everything-you-need-to-know/)
+
+[4] [https://www.youtube.com/watch?v=GQPOtyITy54&ab_channel=DeepLearningHero](https://www.youtube.com/watch?v=GQPOtyITy54&ab_channel=DeepLearningHero)

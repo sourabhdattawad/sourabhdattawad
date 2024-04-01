@@ -377,3 +377,12 @@ search_nodes(55.5)
 Fantastic, we reach `Wine-56` :wine_glass: without needing to search and compare every single node in the dataset! 🙂
 
 While the outcome might differ slightly due to the nature of "approximate" nearest neighbor search, it should still be fairly close to the result presented here.
+
+
+### References
+
+[1] [https://www.youtube.com/watch?v=ZrDpzzVWwFs&t=477s&ab_channel=StanfordOnline](https://www.youtube.com/watch?v=ZrDpzzVWwFs&t=477s&ab_channel=StanfordOnline)
+
+[2] [https://towardsdatascience.com/similarity-search-part-4-hierarchical-navigable-small-world-hnsw-2aad4fe87d37](https://towardsdatascience.com/similarity-search-part-4-hierarchical-navigable-small-world-hnsw-2aad4fe87d37)
+
+[3] [https://www.pinecone.io/learn/series/faiss/hnsw/](https://www.pinecone.io/learn/series/faiss/hnsw/)

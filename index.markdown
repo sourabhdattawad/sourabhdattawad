@@ -20,5 +20,5 @@ I am always eager for engaging conversations about life, technology, and any oth
 दम ले-ले घड़ी-भर, ये छय्याँ पाएगा कहाँ?
 
 > Oh wanderer, to what destination do you journey? Whom do you seek there?  
-Take a breath for a moment, where else can you find such respite?  
+Take a deep breath for a moment, where else can you find such respite?  
 \-  S D Burman

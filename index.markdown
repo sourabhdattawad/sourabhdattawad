@@ -13,3 +13,12 @@ I have more than 4 years of experience as a Machine Learning Engineer, involved 
 I have a strong love for the outdoors, particularly traveling, trekking and hiking. I have dedicated considerable time to exploring the Himalayas and the realm of Indic spirituality. Additionally, I have done some backpacking in India, Malaysia, Sri Lanka, and several places in Europe.
 
 I am always eager for engaging conversations about life, technology, and any other topic. Feel free to contact me through [email](mailto:sourabhdattawad@gmail.com) or [LinkedIn](https://www.linkedin.com/in/sourabhdattawad).
+
+<br>
+
+> वहाँ कौन है तेरा, मुसाफ़िर? जाएगा कहाँ?  
+दम ले-ले घड़ी-भर, ये छय्याँ पाएगा कहाँ?
+
+> Oh wanderer, to what destination do you journey? Whom do you seek there?  
+Take a breath for a moment, where else can you find such respite?  
+\-  S D Burman

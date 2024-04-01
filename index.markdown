@@ -4,7 +4,7 @@ title: About
 permalink: /
 ---
 
-![Sourabh](/assets/images/profile.jpg){: style="float: right; max-width: 33%; margin: 0 0 1em 2em; border-radius: 999px"}
+![Sourabh](/assets/images/profile2.jpg){: style="float: right; max-width: 33%; margin: 0 0 1em 2em; border-radius: 999px"}
     
 I'm Sourabh, currently pursuing a Master of Science in Computational Linguistics at the [Institute for Natural Language Processing, University of Stuttgart](https://www.uni-stuttgart.de/en/study/study-programs/Computational-Linguistics-M.Sc-00001./) in Germany.
 

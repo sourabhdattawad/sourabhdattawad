@@ -63,7 +63,7 @@ However, how does it affect the cluster co-efficient of the node(2)?
 
 Hmm... adding an extra edge indeed decreases the overall diameter, but it also diminishes the clustering coefficients. We aim for graphs with high clustering coefficients and low diameters to efficiently run computational algorithms. However, as we've observed, achieving this balance can be quite challenging. :thinking:
 
-__Here's the next query__: Is it possible to adjust edges to maintain a clustering coefficient while diminishing the overall diameter? Enter the Navigable Small World algorithm. And fear not, the algorithm is simpler than you might imagine! :wink:	
+__Here's the next query__: Is it possible to adjust edges to maintain the clustering coefficient while diminishing the overall diameter? Enter the Navigable Small World algorithm. And fear not, the algorithm is simpler than you might imagine! :wink:	
 
 ## **Navigable Small World (NSW) :earth_asia:**
 

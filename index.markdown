@@ -10,7 +10,7 @@ I'm Sourabh, currently pursuing a Master of Science in Computational Linguistics
 
 I have more than 4 years of experience as a Machine Learning Engineer, involved in building large scale machine learning systems at companies like  [Daimler AG](https://www.daimler.com/) and [Cisco AI](https://www.cisco.com/). Further details about my experience can be found in my [CV](https://europa.eu/europass/eportfolio/screen/share/documents/262ffc37-9995-4caa-850d-bce30690521d?lang=en).
 
-I have a strong love for the outdoors, particularly traveling, trekking and hiking. I have dedicated considerable time to exploring the Himalayas and the realm of Indic spirituality. Additionally, I have done some backpacking in India, Malaysia, Sri Lanka, and some places in Europe.
+I have a strong love for the outdoors, particularly traveling, trekking and hiking. I have dedicated considerable time to exploring the Himalayas and the realm of Indic spirituality. I have some backpacking experience in Asia and some places in Europe.
 
 I am always eager for engaging conversations about life, technology, and any other topic. Feel free to contact me through [email](mailto:sourabhdattawad@gmail.com) or [LinkedIn](https://www.linkedin.com/in/sourabhdattawad).
 

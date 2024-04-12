@@ -12,7 +12,7 @@ I'm Sourabh, currently pursuing a Master of Science in Computational Linguistics
 I have more than 4 years of experience as a Machine Learning Engineer, involved in building large scale machine learning systems at companies like  [Daimler AG](https://www.daimler.com/) and [Cisco AI](https://www.cisco.com/). Further details about my experience can be found in my [CV](https://europa.eu/europass/eportfolio/screen/share/documents/262ffc37-9995-4caa-850d-bce30690521d?lang=en).
 
 <div style="float: left; max-width: 35%; margin: 0 2em 1em 0; text-align: left;">
-    <img src="/assets/images/profile3.gif" alt="Sourabh" style="border-radius: 500px;">
+    <img src="/sourabhdattawad/assets/images/profile3.gif" alt="Sourabh" style="border-radius: 500px;">
 </div>
 <br>
 <br>
